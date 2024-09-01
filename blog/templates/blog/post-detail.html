@@ -42,8 +42,9 @@
         <li>
             <h2>
                 {{comment.user_name}}
-                <p>{{comment.text | linebreaks}}</p>
+                
             </h2>
+            <p>{{comment.text | linebreaks}}</p>
         </li>
         {% endfor %}
     </ul>
