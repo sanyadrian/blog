@@ -25,8 +25,20 @@
     </article>
 </section>
 <main>
-    <p>
         {{post.content|linebreaks}}
-    </p>
 </main>
+    <div>
+        <form id="comment-form"action="{% url "post-detail-page" post.slug %}" method="POST">
+            {% csrf_token %}
+            {%for form_field in comment_form%}
+            <div class="form-control">
+                {{form_field.label_tag}}
+                {{form_field}}
+                {{form_field.errors}}
+            </div>
+            {%endfor%}
+            <button>Save Comment</button>
+        </form>
+    </div>
+
 {%endblock%}
