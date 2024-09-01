@@ -20,8 +20,11 @@ class StartingPageView(ListView):
         return data
 
 class AllPostView(ListView):
+    template_name = "blog/all-posts.html"
+    model = Post
     ordering = ["-date"]
     context_object_name = "all_posts"
+
 
 class SinglePostView(View):
     def is_stored_post(self, request, post_id):
@@ -64,6 +67,7 @@ class SinglePostView(View):
         }
         return render(request, "blog/post-detail.html", context)
     
+
 class ReadLaterView(View):
     def get(self, request):
         stored_posts = request.session.get("stored_posts")
