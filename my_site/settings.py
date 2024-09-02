@@ -26,7 +26,9 @@ SECRET_KEY = '#&&i=w2f#74+augt^y14&%$mp3f+5!t!iwr^rncd&#%ibhm(2*'
 DEBUG = os.getenv("IS_DEVELOPMENT", True)
 
 ALLOWED_HOSTS = [
-    os.getenv("APP_HOST", "127.0.0.1")
+    'lex-adrianov.com', 
+    'www.lex-adrianov.com', 
+    '127.0.0.1'
 ]
 
 
