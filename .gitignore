@@ -50,3 +50,8 @@ db.sqlite3
 venv/
 /path/to/your/static/root/
 staticfiles/
+# Elastic Beanstalk Files
+.elasticbeanstalk/*
+!.elasticbeanstalk/*.cfg.yml
+!.elasticbeanstalk/*.global.yml
+.DS_Store
