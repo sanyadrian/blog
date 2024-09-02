@@ -25,7 +25,9 @@ SECRET_KEY = '#&&i=w2f#74+augt^y14&%$mp3f+5!t!iwr^rncd&#%ibhm(2*'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.getenv("IS_DEVELOPMENT", True)
 
-ALLOWED_HOSTS = ["production.eba-yad2ag3n.us-west-2.elasticbeanstalk.com", "staging.eba-yad2ag3n.us-west-2.elasticbeanstalk.com"]
+ALLOWED_HOSTS = [
+    os.getenv("APP_HOST")
+]
 
 
 # Application definition
