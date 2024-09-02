@@ -46,7 +46,7 @@ coverage.xml
 *.pot
 
 # Sphinx documentation
-docs/_build/db.sqlite3
-
-
+db.sqlite3
+venv/
 /path/to/your/static/root/
+staticfiles/
