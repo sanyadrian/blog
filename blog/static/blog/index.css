@@ -1,34 +1,57 @@
+/* General Styling */
+body {
+  margin: 0;
+  font-family: 'Open Sans', 'Lato', sans-serif;
+  background-color: #e7e7e7;
+}
+
+#main-navigation {
+  width: 100%;
+  background-color: #390281;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2%;
+}
+
+#main-navigation a {
+  text-decoration: none;
+  color: white;
+  font-weight: bold;
+  margin-right: 1.5rem;
+}
+
+/* Welcome Section */
 #welcome {
   background: linear-gradient(to right top, #6305dd, #390281);
   padding: 6rem 12%;
-  text-align: center; /* Center text for smaller screens */
+  text-align: center;
 }
 
 #welcome header {
   display: flex;
+  flex-direction: column;
   align-items: center;
-  justify-content: center;
-  flex-direction: column; /* Stack elements vertically on smaller screens */
   margin: 3rem auto;
 }
 
 #welcome img {
   width: 10rem;
   height: 10rem;
-  object-fit: cover;
-  object-position: top;
   border: 5px solid white;
   border-radius: 12px;
-  background-color: #ffe1bf;
-  transform: rotateZ(-5deg);
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
 }
 
 #welcome h2 {
   font-size: 3.5rem;
-  margin: 2rem 0 0 0;
+  margin-top: 2rem;
   color: #e4e4e4;
-  width: 100%; /* Make sure the heading takes full width on smaller screens */
 }
 
 #welcome p {
@@ -36,12 +59,13 @@
   font-size: 1.5rem;
 }
 
+/* Latest Posts Section */
 #latest-posts {
   background-color: white;
   padding: 2rem;
   border-radius: 12px;
-  width: 90%; /* Make width responsive */
-  max-width: 60rem; /* Set maximum width */
+  width: 90%;
+  max-width: 60rem;
   margin: -6rem auto 2rem auto;
   box-shadow: 1px 1px 12px rgba(0, 0, 0, 0.4);
 }
@@ -54,21 +78,29 @@
   list-style: none;
   margin: 0;
   padding: 0;
-  display: flex;
-  flex-direction: column; /* Stack posts vertically on smaller screens */
+  display: grid;
+  grid-template-columns: 1fr;
   gap: 1rem;
-}
-
-#latest-posts li {
-  flex: 1;
 }
 
 @media (min-width: 768px) {
   #latest-posts ul {
-    flex-direction: row; /* Row layout for larger screens */
+    grid-template-columns: repeat(2, 1fr);
   }
 }
 
+@media (min-width: 1024px) {
+  #latest-posts ul {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+#latest-posts li {
+  display: flex;
+  justify-content: center;
+}
+
+/* About Section */
 #about {
   text-align: center;
   padding: 3rem;
@@ -85,19 +117,14 @@
   color: #353535;
 }
 
-/* Responsive adjustments */
+/* Responsive Adjustments */
 @media (max-width: 768px) {
   #welcome {
     padding: 4rem 5%;
   }
 
-  #welcome header {
-    margin: 2rem auto;
-  }
-
   #welcome h2 {
     font-size: 2.5rem;
-    margin: 1.5rem 0 0 0;
   }
 
   #latest-posts {
@@ -111,10 +138,6 @@
 
   #about h2 {
     font-size: 2.5rem;
-  }
-
-  #about p {
-    font-size: 1.2rem;
   }
 }
 
