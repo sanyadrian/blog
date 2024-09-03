@@ -10,6 +10,7 @@ html {
 
 body {
   margin: 0;
+  line-height: 1.6;
 }
 
 h1,
@@ -25,17 +26,20 @@ h3 {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0 10%;
-  position: absolute;
+  padding: 0 5%;
+  background-color: #390281;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+  position: fixed;
   top: 0;
   left: 0;
+  z-index: 1000;
 }
 
 #main-navigation a {
   text-decoration: none;
   color: white;
   font-weight: bold;
-  margin-right: 6rem;
+  margin-right: 1rem;
 }
 
 #main-navigation a:hover,
@@ -43,7 +47,119 @@ h3 {
   color: #cf79f1;
 }
 
+#main-navigation h1 {
+  flex: 1;
+  text-align: center;
+}
+
+#main-navigation nav:first-of-type {
+  flex: 1;
+}
+
+#main-navigation nav:last-of-type {
+  flex: 1;
+  text-align: right;
+}
+
 #main-navigation h1 a:hover,
 #main-navigation h1 a:active {
   color: white;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  #main-navigation {
+    flex-direction: column;
+    height: auto;
+    padding: 1rem;
+  }
+
+  #main-navigation nav {
+    margin-bottom: 0.5rem;
+    text-align: center;
+  }
+
+  #main-navigation h1 {
+    margin-bottom: 1rem;
+  }
+
+  #main-navigation a {
+    margin-right: 0;
+  }
+}
+
+@media (max-width: 480px) {
+  #main-navigation {
+    padding: 0.5rem;
+  }
+
+  #main-navigation h1 {
+    font-size: 1.5rem;
+  }
+
+  #main-navigation a {
+    font-size: 0.9rem;
+  }
+}
+
+#main-navigation i {
+  font-size: 1.2rem;
+}
+
+/* Additional Responsive Styles for Sections */
+
+#welcome {
+  padding: 3rem 5%;
+  text-align: center;
+}
+
+#welcome header {
+  flex-direction: column;
+  align-items: center;
+}
+
+#welcome img {
+  width: 7rem;
+  height: 7rem;
+}
+
+#welcome h2 {
+  font-size: 2.5rem;
+  margin-top: 1rem;
+}
+
+#welcome p {
+  font-size: 1.2rem;
+}
+
+#latest-posts ul {
+  display: flex;
+  flex-direction: column;
+}
+
+#latest-posts li {
+  margin-bottom: 1rem;
+}
+
+@media (min-width: 768px) {
+  #latest-posts ul {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  #latest-posts li {
+    flex: 1;
+  }
+}
+
+#about {
+  padding: 2rem 5%;
+}
+
+#about h2 {
+  font-size: 2rem;
+}
+
+#about p {
+  font-size: 1rem;
 }
