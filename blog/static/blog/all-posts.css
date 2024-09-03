@@ -1,43 +1,104 @@
 body {
-    background-color: #e7e7e7;
-  }
-  
-  #main-navigation {
-    background-color: #390281;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
-  }
-  
+  background-color: #e7e7e7;
+}
+
+/* Navigation bar styling */
+#main-navigation {
+  background-color: #390281;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+  padding: 1rem 2%;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
+  z-index: 1000; /* Ensure the navbar stays on top */
+}
+
+/* Main content container for all posts */
+#all-posts {
+  margin: 8rem auto; /* Increased margin for better spacing */
+  width: 90%;
+  max-width: 60rem;
+}
+
+/* Header for the posts section */
+#all-posts h2 {
+  text-align: center;
+  font-size: 2rem;
+  color: #2e2e2e;
+  margin: 3rem 0;
+}
+
+/* Post grid styling */
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(17rem, 1fr)); /* Responsive grid layout */
+  gap: 1.5rem;
+}
+
+/* Image styling within each post */
+.post img {
+  width: 7rem;
+  height: 7rem;
+  object-fit: cover;
+  border-radius: 50%; /* Circular images */
+}
+
+/* Post container styling */
+.post a {
+  height: 22rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  transform-origin: center;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+  border-radius: 12px;
+  background-color: white;
+  padding: 1rem;
+  transition: transform 0.3s ease; /* Smooth hover effect */
+}
+
+.post a:hover {
+  transform: scale(1.05); /* Slight zoom on hover */
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
   #all-posts {
-    margin: 7rem auto;
-    width: 90%;
-    max-width: 60rem;
+    margin: 6rem auto;
+    width: 95%; /* Full width on smaller screens */
   }
-  
-  #all-posts h2 {
-    text-align: center;
-    font-size: 2rem;
-    color: #2e2e2e;
-    margin: 3rem 0;
-  }
-  
+
   ul {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(17rem, 1fr));
-    gap: 1.5rem;
+    grid-template-columns: 1fr; /* Single column layout on small screens */
   }
-  
+
   .post img {
-    width: 7rem;
-    height: 7rem;
+    width: 6rem;
+    height: 6rem;
   }
-  
+
   .post a {
-    height: 22rem;
-    transform-origin: center;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
-    border-radius: 12px;
-    background-color: white;
+    height: 18rem;
   }
+}
+
+@media (max-width: 480px) {
+  #all-posts {
+    margin: 5rem auto;
+    width: 100%; /* Full width on smaller screens */
+  }
+
+  .post img {
+    width: 5rem;
+    height: 5rem;
+  }
+
+  .post a {
+    height: 15rem;
+  }
+}

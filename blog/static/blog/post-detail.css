@@ -7,6 +7,7 @@ body {
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
 }
 
+/* Summary Section */
 #summary {
   margin: 8rem auto 3rem auto;
   padding: 2rem;
@@ -17,6 +18,9 @@ body {
   position: relative;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
   height: 22rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 #summary h2 {
@@ -76,6 +80,7 @@ body {
   color: #390281;
 }
 
+/* Main Content Area */
 main {
   width: 90%;
   max-width: 90rem;
@@ -93,6 +98,7 @@ main {
   border-radius: 8px;
 }
 
+/* Comment Form */
 #comment-form {
   margin: 3rem auto;
   width: 90%;
@@ -156,6 +162,7 @@ main {
   background-color: #ffe6e7;
 }
 
+/* Alert Section */
 #alert {
   margin: 8rem auto 3rem auto;
   border: 1px solid #d6000b;
@@ -174,6 +181,7 @@ main {
   border-radius: 6px;
 }
 
+/* Comments Section */
 #comments {
   margin: 3rem auto;
   width: 90%;
@@ -201,4 +209,54 @@ main {
 
 #comments h2 {
   color: #464646;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  #summary {
+    flex-direction: column;
+    height: auto;
+    padding: 1rem;
+    text-align: center;
+  }
+
+  #summary h2 {
+    font-size: 2.5rem;
+  }
+
+  #summary article {
+    position: static;
+    text-align: center;
+    margin-top: 1rem;
+  }
+
+  #summary article img {
+    width: 8rem;
+    height: 8rem;
+  }
+
+  main {
+    padding: 0.5rem;
+  }
+
+  #comments {
+    padding: 0.5rem 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  #summary h2 {
+    font-size: 2rem;
+  }
+
+  #summary article img {
+    width: 6rem;
+    height: 6rem;
+  }
+
+  #comment-form,
+  #alert,
+  main {
+    padding: 0.5rem;
+  }
 }
