@@ -1,15 +1,15 @@
 @import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Open+Sans:wght@400;700&display=swap');
 
+/* Global Styles */
 * {
   box-sizing: border-box;
 }
 
-html {
-  font-family: 'Open Sans', 'Lato', sans-serif;
-}
-
 body {
   margin: 0;
+  padding-top: 5rem; /* Equal to navbar height */
+  font-family: 'Open Sans', 'Lato', sans-serif;
+  background-color: #e7e7e7;
   line-height: 1.6;
 }
 
@@ -18,8 +18,10 @@ h2,
 h3 {
   font-family: 'Lato', sans-serif;
   font-weight: bold;
+  margin: 0;
 }
 
+/* Navbar Styles */
 #main-navigation {
   width: 100%;
   height: 5rem;
@@ -40,6 +42,7 @@ h3 {
   color: white;
   font-weight: bold;
   margin-right: 1rem;
+  transition: color 0.3s ease;
 }
 
 #main-navigation a:hover,
@@ -61,105 +64,202 @@ h3 {
   text-align: right;
 }
 
-#main-navigation h1 a:hover,
-#main-navigation h1 a:active {
-  color: white;
-}
-
-/* Responsive Adjustments */
-@media (max-width: 768px) {
-  #main-navigation {
-    flex-direction: column;
-    height: auto;
-    padding: 1rem;
-  }
-
-  #main-navigation nav {
-    margin-bottom: 0.5rem;
-    text-align: center;
-  }
-
-  #main-navigation h1 {
-    margin-bottom: 1rem;
-  }
-
-  #main-navigation a {
-    margin-right: 0;
-  }
-}
-
-@media (max-width: 480px) {
-  #main-navigation {
-    padding: 0.5rem;
-  }
-
-  #main-navigation h1 {
-    font-size: 1.5rem;
-  }
-
-  #main-navigation a {
-    font-size: 0.9rem;
-  }
-}
-
 #main-navigation i {
   font-size: 1.2rem;
 }
 
-/* Additional Responsive Styles for Sections */
-
+/* Welcome Section */
 #welcome {
-  padding: 3rem 5%;
+  background: linear-gradient(to right top, #6305dd, #390281);
+  padding: 6rem 12%;
   text-align: center;
+  color: white;
 }
 
 #welcome header {
+  display: flex;
   flex-direction: column;
   align-items: center;
+  margin-bottom: 2rem;
 }
 
 #welcome img {
-  width: 7rem;
-  height: 7rem;
+  width: 10rem;
+  height: 10rem;
+  border: 5px solid white;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
 }
 
 #welcome h2 {
-  font-size: 2.5rem;
-  margin-top: 1rem;
+  font-size: 3.5rem;
+  margin-top: 1.5rem;
+  color: #e4e4e4;
 }
 
 #welcome p {
-  font-size: 1.2rem;
+  font-size: 1.5rem;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* Latest Posts Section */
+#latest-posts {
+  background-color: white;
+  padding: 4rem 2rem;
+  border-radius: 12px;
+  width: 90%;
+  max-width: 1200px;
+  margin: 2rem auto;
+  box-shadow: 1px 1px 12px rgba(0, 0, 0, 0.1);
+}
+
+#latest-posts h2 {
+  text-align: center;
+  margin-bottom: 3rem;
+  color: #333;
 }
 
 #latest-posts ul {
-  display: flex;
-  flex-direction: column;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+}
+
+@media (min-width: 600px) {
+  #latest-posts ul {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 900px) {
+  #latest-posts ul {
+    grid-template-columns: repeat(3, 1fr);
+  }
 }
 
 #latest-posts li {
-  margin-bottom: 1rem;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
 }
 
-@media (min-width: 768px) {
-  #latest-posts ul {
-    flex-direction: row;
-    justify-content: space-between;
-  }
-
-  #latest-posts li {
-    flex: 1;
-  }
+#latest-posts li:hover {
+  transform: translateY(-5px);
 }
 
+#latest-posts li img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+#latest-posts li h3 {
+  margin: 1rem;
+  font-size: 1.5rem;
+  color: #333;
+}
+
+#latest-posts li p {
+  margin: 0 1rem 1.5rem;
+  color: #666;
+}
+
+#latest-posts li a {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+}
+
+/* About Section */
 #about {
-  padding: 2rem 5%;
+  text-align: center;
+  padding: 3rem 2rem;
+  background-color: #e48900;
+  color: #353535;
 }
 
 #about h2 {
-  font-size: 2rem;
+  font-size: 3rem;
+  margin-bottom: 2rem;
+  color: #fff;
 }
 
 #about p {
-  font-size: 1rem;
+  font-size: 1.5rem;
+  max-width: 800px;
+  margin: 0 auto 1.5rem;
+  color: #f1f1f1;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  #welcome {
+    padding: 4rem 5%;
+  }
+
+  #welcome h2 {
+    font-size: 2.5rem;
+  }
+
+  #welcome p {
+    font-size: 1.2rem;
+  }
+
+  #latest-posts {
+    padding: 3rem 1rem;
+    margin: 2rem auto;
+  }
+
+  #latest-posts h2 {
+    font-size: 2.5rem;
+  }
+
+  #about {
+    padding: 2rem 1rem;
+  }
+
+  #about h2 {
+    font-size: 2.5rem;
+  }
+
+  #about p {
+    font-size: 1.2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  #welcome img {
+    width: 8rem;
+    height: 8rem;
+  }
+
+  #welcome h2 {
+    font-size: 2rem;
+  }
+
+  #welcome p {
+    font-size: 1rem;
+  }
+
+  #latest-posts {
+    padding: 2rem 1rem;
+  }
+
+  #latest-posts h2 {
+    font-size: 2rem;
+  }
+
+  #about h2 {
+    font-size: 2rem;
+  }
+
+  #about p {
+    font-size: 1rem;
+  }
 }
