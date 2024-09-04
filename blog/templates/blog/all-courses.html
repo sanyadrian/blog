@@ -1,7 +1,7 @@
 {%extends "base.html"%}
 {%load static%}
 {% block title %}
-    All My Posts
+    Useful Courses !
 {%endblock%}
 {%block css_files%}
 <link rel="stylesheet" href="{%static "blog/post.css"%}">
@@ -9,10 +9,10 @@
 {%endblock%}
 {%block content%}
 <section id="all-posts">
-    <h2>My Collected Posts</h2>
+    <h2>Courses that I used</h2>
     <ul>
-        {%for post in all_posts%}
-            {%include "blog/include/post.html"%}
+        {%for course in all_courses%}
+            {%include "blog/include/course.html"%}
         {%endfor%}
     </ul>
 </section>

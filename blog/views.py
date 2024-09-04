@@ -3,7 +3,7 @@ from typing import Any
 from django.shortcuts import render, get_object_or_404
 from django.http import HttpResponseRedirect
 from django.urls import reverse
-from .models import Post
+from .models import Post, Course
 from django.views.generic import ListView
 from .forms import CommentForm
 from django.views import View
@@ -101,3 +101,20 @@ class ReadLaterView(View):
         request.session["stored_posts"] = stored_posts
         
         return HttpResponseRedirect("/")
+  
+class CoursesView(ListView):
+  template_name = "blog/all-courses.html"
+  model = Course
+  context_object_name = "all_courses"
+
+
+class SingleCourseView(View):
+    def get(self, request, slug):
+        course = Course.objects.get(slug=slug)
+        
+        context = {
+            "course": course,
+        }
+        return render(request, "blog/course-detail.html", context)
+        
+    

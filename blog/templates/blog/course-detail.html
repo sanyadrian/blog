@@ -1,0 +1,44 @@
+{% extends "base.html" %} 
+{% load static %} 
+{% load youtube_embed %}
+
+
+{% block title %} 
+{{ post.title }}
+{% endblock %} 
+
+{% block css_files %} 
+<link rel="stylesheet" href="{% static "blog/post-detail.css" %}" /> 
+<link rel="stylesheet" href="{% static "blog/course-detail.css" %}" /> 
+{% endblock %} 
+
+{% block content %}
+
+{% if comment_form.errors %}
+  <div id="alert">
+    <h2>Saving the comment failed!</h2>
+    <p>Please check the comment form below the post and fix your erros.</p>
+    <a href="#comment-form">Fix!</a>
+  </div>
+{% endif %}
+
+<section id="summary">
+  <h2>{{ course.title }}</h2>
+  <article>
+    <img src="{{ course.image.url }}" alt="{{ post.title }}" />
+  </article>
+</section>
+<section id="video-section">
+    <div class="video-container">
+        <iframe width="560" height="315" 
+                src="{{ course.video_url|youtube_embed }}" 
+                frameborder="0" allowfullscreen>
+        </iframe>
+    </div>
+    <p class="video-description">Watch the introductory video to learn more about this course.</p>
+</section>
+
+<main>
+  {{ post.content|linebreaks }}
+</main>
+{% endblock %}
