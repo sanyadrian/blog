@@ -2,22 +2,24 @@
 {% load static %} 
 
 {% block title %} 
-{{ post.title }}
+    {{ project.title }}
 {% endblock %} 
 
 {% block css_files %} 
-<link rel="stylesheet" href="{% static "blog/post-detail.css" %}" /> 
-{% comment %} <link rel="stylesheet" href="{% static "blog/project-detail.css" %}" />  {% endcomment %}
+    <link rel="stylesheet" href="{% static 'blog/project-detail.css' %}" /> 
 {% endblock %} 
 
 {% block content %}
-
 <section id="summary">
   <h2>{{ project.title }}</h2>
   <article>
-    <a href="{{project.link}}" ><img src="{{ project.image.url }}" alt="{{ project.title }}" /></a>
-    <a href="https://github.com/sanyadrian" target="_blank"><i class="fab fa-github"></i></a>
+    <a href="{{ project.link }}" target="_blank">
+      <img src="{{ project.image.url }}" alt="{{ project.title }}" />
+    </a>
+    <a href="https://github.com/sanyadrian" target="_blank" class="github-link">
+      <i class="fab fa-github"></i>
+    </a>
   </article>
-  <p>{{ project.description}}</p>
+  <p>{{ project.description }}</p>
 </section>
 {% endblock %}

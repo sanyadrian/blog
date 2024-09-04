@@ -124,7 +124,7 @@ main {
 
 #about p {
   font-size: 1.5rem;
-  color: #353535;
+  color: #767676;
 }
 
 /* Responsive Adjustments */
@@ -172,5 +172,130 @@ main {
 
   #about p {
     font-size: 1rem;
+  }
+}
+
+/* Experience and Education Section */
+#experience-education {
+  padding: 3rem 2rem;
+  background-color: #e7e7e7;  /* Matches the background of the entire page */
+  text-align: center;
+}
+
+/* Timeline Container for Experience and Education */
+.timeline-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  position: relative;
+  margin: 0 auto;
+  padding: 2rem;
+  max-width: 1200px;
+}
+
+/* Experience and Education Sections */
+.experience, .education {
+  width: 45%;  
+  position: relative;
+}
+
+h3 {
+  font-size: 2rem;
+  color: #390281;  /* Matches the navbar and overall theme */
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+/* Timeline and Boxes */
+.timeline {
+  position: relative;
+  margin: 0 auto;
+}
+
+.timeline-item {
+  margin-bottom: 2rem;
+  position: relative;
+}
+
+/* Adjust margin-top based on year */
+.timeline-item[data-year="2025"] {
+  margin-top: 0;
+}
+
+.timeline-item[data-year="2024"] {
+  margin-top: 4rem;
+}
+
+.timeline-item[data-year="2023"] {
+  margin-top: 8rem;
+}
+
+.timeline-item[data-year="2020"] {
+  margin-top: 12rem;
+}
+
+.timeline-item h4 {
+  font-size: 1.5rem;
+  color: #390281;  /* Same purple tone */
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+/* Experience and Education Boxes */
+.box {
+  background-color: #390281;  /* Change to match the purple theme */
+  padding: 1.5rem;
+  margin: 0 auto;
+  border-radius: 12px;
+  color: white;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.box h5 {
+  font-size: 1.3rem;
+  margin: 0;
+}
+
+.box p {
+  margin: 0;
+}
+
+/* Vertical Line between Experience and Education */
+.timeline-container::after {
+  content: '';
+  position: absolute;
+  width: 4px;
+  background-color: #390281;  /* Purple line */
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  margin-left: -2px;
+  z-index: 0;
+}
+
+.timeline-item[data-year="empty"] {
+  height: 8rem;  /* Adjust this value based on how much space you need */
+  margin-bottom: 2rem;
+}
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+  .timeline-container {
+      flex-direction: column;
+      align-items: center;
+  }
+
+  .timeline-container::after {
+      display: none;
+  }
+
+  .experience, .education {
+      width: 100%;
+      margin-bottom: 2rem;
+  }
+
+  .timeline-item {
+      margin-top: 0;
   }
 }
