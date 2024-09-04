@@ -43,7 +43,18 @@ class Course(models.Model):
     slug = models.SlugField(unique=True, db_index=True)
     video_url = models.URLField(max_length=200)
     image = models.ImageField(upload_to="courses", null=True)
-    description = models. TextField(max_length=1000, null=True)
+    description = models.TextField(max_length=1000, null=True)
+
+    def __str__(self):
+        return f"{self.title}"
+
+
+class Project(models.Model):
+    title = models.CharField(max_length=100)
+    description = models.TextField(max_length=1000, null=True)
+    link = models.URLField(max_length=200)
+    image=models.ImageField(upload_to="projects", null=True)
+    slug = models.SlugField(unique=True, db_index=True, default="0")
 
     def __str__(self):
         return f"{self.title}"

@@ -3,7 +3,7 @@ from typing import Any
 from django.shortcuts import render, get_object_or_404
 from django.http import HttpResponseRedirect
 from django.urls import reverse
-from .models import Post, Course
+from .models import Post, Course, Project
 from django.views.generic import ListView
 from .forms import CommentForm
 from django.views import View
@@ -117,4 +117,18 @@ class SingleCourseView(View):
         }
         return render(request, "blog/course-detail.html", context)
         
-    
+
+class ProjectsView(ListView):
+   template_name = "blog/all-projects.html"
+   model = Project
+   context_object_name = "all_projects"
+
+
+class SingleProjectView(View):
+    def get(self, request, slug):
+        project = Project.objects.get(slug=slug)
+        
+        context = {
+            "project": project,
+        }
+        return render(request, "blog/project-detail.html", context)
