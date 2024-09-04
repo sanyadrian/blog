@@ -7,6 +7,7 @@ from .models import Post, Course, Project
 from django.views.generic import ListView
 from .forms import CommentForm
 from django.views import View
+from django.utils import timezone
 
 class StartingPageView(ListView):
     template_name = "blog/index.html"
@@ -15,9 +16,16 @@ class StartingPageView(ListView):
     context_object_name = "posts"
 
     def get_queryset(self):
-        queryset = super().get_queryset()
-        data = queryset[:3]
-        return data
+      queryset = super().get_queryset()
+      data = queryset[:3]
+      return data
+
+    def get(self, request, *args, **kwargs):
+      response = super().get(request, *args, **kwargs)
+      if not request.COOKIES.get('first_visit'):
+          response.set_cookie('first_visit', timezone.now().strftime('%Y-%m-%d %H:%M:%S'), max_age=3600)  # Cookie lasts 30 days
+
+      return response
 
 class AllPostView(ListView):
     template_name = "blog/all-posts.html"
