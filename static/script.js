@@ -10,18 +10,15 @@ window.addEventListener('load', () => {
   }, 1500)
 })
 document.addEventListener('DOMContentLoaded', function () {
-  // Check if the 'cookieConsent' cookie is already set
   if (!getCookie('cookieConsent')) {
     document.getElementById('cookieConsent').style.display = 'block'
   }
 
-  // Handle clicking the 'Accept' button
   document.getElementById('acceptCookies').onclick = function () {
-    setCookie('cookieConsent', 'accepted', 30) // Set the cookie for 30 days
+    setCookie('cookieConsent', 'accepted', 30)
     document.getElementById('cookieConsent').style.display = 'none'
   }
 
-  // Helper function to set a cookie
   function setCookie (name, value, days) {
     let expires = ''
     if (days) {
@@ -43,4 +40,13 @@ document.addEventListener('DOMContentLoaded', function () {
     }
     return null
   }
+})
+
+document.addEventListener('DOMContentLoaded', function () {
+  const menuToggle = document.getElementById('menu-toggle')
+  const mainNav = document.getElementById('main-navigation')
+
+  menuToggle.addEventListener('click', function () {
+    mainNav.classList.toggle('active')
+  })
 })
