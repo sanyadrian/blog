@@ -14,6 +14,7 @@ import os
 from dotenv import load_dotenv
 
 load_dotenv()
+
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -32,6 +33,8 @@ ALLOWED_HOSTS = [
     'www.lex-adrianov.com', 
     '127.0.0.1'
 ]
+
+CSRF_TRUSTED_ORIGINS = ['https://lex-adrianov.com', 'https://www.lex-adrianov.com']
 
 
 # Application definition
@@ -84,10 +87,6 @@ WSGI_APPLICATION = 'my_site.wsgi.application'
 # https://docs.djangoproject.com/en/2.2/ref/settings/#databases
 
 DATABASES = {
-    # 'default': {
-    #     'ENGINE': 'django.db.backends.sqlite3',
-    #     'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-    # }
     'default': {
        'ENGINE': 'django.db.backends.postgresql',
         'NAME': os.getenv("DB_NAME"),
@@ -149,7 +148,8 @@ AWS_S3_REGION_NAME = os.getenv("AWS_S3_REGION_NAME")
 AWS_ACCESS_KEY_ID = os.getenv("AWS_ACCESS_KEY_ID")
 AWS_SECRET_ACCESS_KEY = os.getenv("AWS_SECRET_ACCESS_KEY")
 
-AWS_S3_CUSTON_DOMAIN = f"{AWS_STORAGE_BUCKET_NAME}.s3.amazonaws.com"
+AWS_S3_CUSTOM_DOMAIN = f"{AWS_STORAGE_BUCKET_NAME}.s3.amazonaws.com"
+
 
 STATICFILES_FOLDER = "static"
 MEDIAFILES_FOLDER = "media"
